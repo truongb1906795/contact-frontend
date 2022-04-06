@@ -1,6 +1,6 @@
 <template>
     <div v-if="contact" class="page">
-        <h4>Hiệu chỉnh Liên hệ</h4>
+        <h4>Hiệu chỉnh liên hệ</h4>
         <ContactForm
             :contact="contact"
             @submit:contact="updateContact"
@@ -33,7 +33,7 @@ export default {
                 this.contact = await ContactService.get(id);
             } catch (error) {
                 console.log(error);
-                // Chuyển sang trang NotFound đồng thời giữ cho URL không đổi
+                
                 this.$router.push({
                     name: "NotFound",
                     params: {
@@ -55,7 +55,7 @@ export default {
         },
 
         async deleteContact() {
-            if (confirm("Bạn muốn xóa Liên hệ này?")) {
+            if (confirm("Bạn có muốn xóa liên hệ này không?")) {
                 try {
                     await ContactService.delete(this.contact._id);
                     this.$router.push({ name: "ContactBook" });

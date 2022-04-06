@@ -1,6 +1,6 @@
 <template>
     <div v-if="contact" class="page">
-        <h4>Hiệu chỉnh Liên hệ</h4>
+        <h4>Thêm liên hệ mới</h4>
         <ContactForm
             :contact="contact"
             @submit:contact="addContact"
@@ -32,7 +32,7 @@ export default {
         async addContact(data) {
             try {
                 await ContactService.create(data)
-                this.message= "TẠO THÀNH CÔNG";
+                this.message= "Them lien he moi da thanh cong";
                  this.$router.push({ name: "ContactBook" });
 
             }catch (error){
@@ -41,6 +41,7 @@ export default {
         }
     },
     created() {
+        
         
         this.message = "";
     },
